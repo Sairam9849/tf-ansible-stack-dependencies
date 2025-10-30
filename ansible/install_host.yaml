@@ -1,0 +1,12 @@
+---
+- name: Prepare EC2 host for Ansible
+  hosts: all
+  become: true
+  tasks:
+    - name: Update apt packages
+      apt:
+        update_cache: yes
+    - name: Install Python for Ansible
+      apt:
+        name: python3
+        state: present
